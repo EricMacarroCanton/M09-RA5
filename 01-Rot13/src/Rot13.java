@@ -6,7 +6,15 @@ public class Rot13 {
 
     public static String xifraRot13(String cadena) {
     if (cadena == null) return null;
-          
+        
+        String resultat = "";
+
+        for (int i = 0; i < cadena.length(); i++) {
+            char lletra = cadena.charAt(i);
+            boolean trobat = false;
+          for (int j = 0; j < minuscules.length; j++) {
+            
+          }
 }
 public static String desxifraRot13(String cadena) {
     if (cadena == null) return null;
