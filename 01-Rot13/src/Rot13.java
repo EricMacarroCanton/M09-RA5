@@ -1,8 +1,8 @@
 public class Rot13 {
     
     private static final String lletres = "AÀÁBCÇDEÉÈFGHIÍÌJKLMNÑOÓÒPQRSTUÚÜÙVWXYZ";
-    public char[] minuscules = lletres.toLowerCase().toCharArray();
-    public char[] majuscules = lletres.toCharArray();
+    public static char[] minuscules = lletres.toLowerCase().toCharArray();
+    public static char[] majuscules = lletres.toCharArray();
 
     public static String xifraRot13(String cadena) {
     if (cadena == null) return null;
@@ -13,9 +13,14 @@ public class Rot13 {
             char lletra = cadena.charAt(i);
             boolean trobat = false;
           for (int j = 0; j < minuscules.length; j++) {
-            
-          }
-}
+                if (minuscules[j] == lletra) {
+                    int novaPos = (j + 13) % minuscules.length;
+                    resultat += minuscules[novaPos];
+                    trobat = true;
+                    break;
+                }
+            }
+        }
 public static String desxifraRot13(String cadena) {
     if (cadena == null) return null;
 }
