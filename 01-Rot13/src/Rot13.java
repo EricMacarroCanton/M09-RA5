@@ -20,7 +20,25 @@ public class Rot13 {
                     break;
                 }
             }
+            if (!trobat) {
+                for (int j = 0; j < majuscules.length; j++) {
+                    if (majuscules[j] == lletra) {
+                        int novaPos = (j + 13) % majuscules.length;
+                        resultat += majuscules[novaPos];
+                        trobat = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!trobat) {
+                resultat += lletra;
+            }
         }
+
+        return resultat;
+    }
+        
 public static String desxifraRot13(String cadena) {
     if (cadena == null) return null;
 }
@@ -40,4 +58,4 @@ public static void main(String[] args) {
                 System.out.printf("%-23sc=> %s%n" , msg, desxifraRot13(msg));
             }
    }
-}
+
