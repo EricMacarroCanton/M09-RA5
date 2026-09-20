@@ -1,6 +1,6 @@
 public class Rot13 {
     
-    private static final String lletres = "AÀÁBCÇDEÉÈFGHIÍÌJKLMNÑOÓÒPQRSTUÚÜÙVWXYZ";
+    private static final String lletres = "AÁÀBCÇDEÉÈFGHIÍÌÏJKLMNÑOÓÒPQRSTUÚÙÜVWXYZ";
     public static char[] minuscules = lletres.toLowerCase().toCharArray();
     public static char[] majuscules = lletres.toCharArray();
 
@@ -84,12 +84,13 @@ public static void main(String[] args) {
         System.out.println("\nXifrat---");
         for (int i = 0; i < original1.length; i++) {
             msgsxifrats[i] = xifraRot13(original1[i]);
-            System.out.printf("%-23sc=> %s%n" , original1[i], msgsxifrats[i]);
+            System.out.printf("%-23s=> %s%n" , original1[i], msgsxifrats[i]);
         }
         System.out.println("\nDesxifrat---");
 
             for(String msg : msgsxifrats) {
-                System.out.printf("%-23sc=> %s%n" , msg, desxifraRot13(msg));
+                System.out.printf("%-23s=> %s%n" , msg, desxifraRot13(msg));
             }
    }
+}
 
