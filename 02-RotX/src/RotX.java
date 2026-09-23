@@ -42,6 +42,7 @@ public class RotX {
 
 
     public static String desxifraRotX (String Cadena, int desplaçament) {
+        String resultat = "";
 
         return "s";
     }
@@ -62,4 +63,4 @@ public class RotX {
                 msgsxifrats[i] = xifraRotX(original1[i], desplaçament);
                 System.out.printf("(%d) -%-31s=> %s%n", desplaçament, original1[i], msgsxifrats[i]);            }
         }
-    }
+    } 
