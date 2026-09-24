@@ -78,9 +78,13 @@ public class RotX {
         return resultat;
     }
 
-    public static String forcaBrutaRotX () {
+    public static void forcaBrutaRotX(String missatgeXifrat) {
 
-        return "s";
+
+        for (int i = 0; i < minuscules.length; i++) {
+            String desxifrat = desxifraRotX(missatgeXifrat, i);
+            System.out.printf("(%d)->%s%n", i, desxifrat);
+        }
     }
 
 
@@ -92,12 +96,20 @@ public class RotX {
             for (int i = 0; i < original1.length; i++) {
                 int desplaçament = i * 2; 
                 msgsxifrats[i] = xifraRotX(original1[i], desplaçament);
-                System.out.printf("(%d) -%-31s=> %s%n", desplaçament, original1[i], msgsxifrats[i]);            }
+                System.out.printf("(%d) -%-31s=> %s%n", desplaçament, original1[i], msgsxifrats[i]);         
+               }
                       System.out.println("\nDesxifrat---");
         for (int i = 0; i < original1.length; i++) {
             int desplaçament = i * 2;
             String desxifrat = desxifraRotX(msgsxifrats[i], desplaçament);
             System.out.printf("(%d) -%-31s=> %s%n", desplaçament, msgsxifrats[i], desxifrat);
         }
-        }
-    } 
+
+        String missatgeXifrat = "Úiüht, úiù wx ùxì ív?";
+        System.out.println();
+        System.out.println("Missatge xifrat: " + missatgeXifrat);
+        System.out.println("----------------------------------------");
+        forcaBrutaRotX(missatgeXifrat);
+    }
+
+}
