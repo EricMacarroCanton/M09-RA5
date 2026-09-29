@@ -27,18 +27,24 @@ public class Monoalfabetic {
         String resultat = "";
         for (int i = 0; i < cadena.length(); i++) {
             char c = cadena.charAt(i);
+            char cMajuscula = Character.toUpperCase(c);
             int pos = -1;
-            for (int j = 0; j < minuscules.length; j++) {
-                if (minuscules[j] == c) {
+            for (int j = 0; j < majuscules.length; j++) {
+                if (majuscules[j] == cMajuscula) {
                     pos = j;
                     break;
                 }
             }
             if (pos != -1) {
+                if (c == cMajuscula) {
                 resultat = resultat + permutacio[pos];
             } else {
-                resultat = resultat + c;
-            }
+                resultat = resultat + Character.toLowerCase(permutacio[pos]);
+            } 
+        }
+        else {
+             resultat = resultat + c;
+             }
         }
         return resultat;
     }
@@ -46,15 +52,20 @@ public class Monoalfabetic {
     String resultat = "";
     for (int i = 0; i < cadena.length(); i++) {
         char c = cadena.charAt(i);
+        char cMajuscula = Character.toUpperCase(c);
         int pos = -1;
         for (int j = 0; j < permutacio.length; j++) {
-            if (permutacio[j] == c) {
+            if (permutacio[j] == cMajuscula) {
                 pos = j;
                 break;
             }
         }
         if (pos != -1) {
-            resultat = resultat + minuscules[pos];
+             if (c == cMajuscula) {
+            resultat = resultat + majuscules[pos];
+             } else {
+                resultat = resultat + Character.toLowerCase(majuscules[pos]);
+             }
         } else {
             resultat = resultat + c;
         }
