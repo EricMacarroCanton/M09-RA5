@@ -3,7 +3,6 @@ import java.util.Random;
 public class Monoalfabetic {
 
     private static final String lletres = "AÁÀBCÇDEÉÈFGHIÍÌÏJKLMNÑOÓÒPQRSTUÚÙÜVWXYZ";
-    public static char[] minuscules = lletres.toLowerCase().toCharArray();
     public static char[] majuscules = lletres.toCharArray();
     public static char[] permutacio = permutaAlfabet(minuscules);
 
@@ -44,9 +43,24 @@ public class Monoalfabetic {
         return resultat;
     }
     public static String desxifraMonoAlfa(String cadena) {
-       
-        return "S";
+    String resultat = "";
+    for (int i = 0; i < cadena.length(); i++) {
+        char c = cadena.charAt(i);
+        int pos = -1;
+        for (int j = 0; j < permutacio.length; j++) {
+            if (permutacio[j] == c) {
+                pos = j;
+                break;
+            }
+        }
+        if (pos != -1) {
+            resultat = resultat + minuscules[pos];
+        } else {
+            resultat = resultat + c;
+        }
     }
+    return resultat;
+}
 
     public static void main(String[] args) {
 
