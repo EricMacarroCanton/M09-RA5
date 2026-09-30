@@ -88,12 +88,14 @@ public class Monoalfabetic {
         "Test 02 Taüll, DÍA, año",
         "Test 03 Peça, Òrrius, Bòvila"
     };
+    System.out.println();
 
     System.out.println("Xifratge:");
     for (int i = 0; i < proves.length; i++) {
         String xifrat = xifraMonoAlfa(proves[i]);
         System.out.println(proves[i] + " -> " + xifrat);
     }
+    System.out.println();
 
     System.out.println("Desxifratge:");
     for (int i = 0; i < proves.length; i++) {
@@ -101,5 +103,6 @@ public class Monoalfabetic {
         String desxifrat = desxifraMonoAlfa(xifrat);
         System.out.println(xifrat + " -> " + desxifrat);
     }
+    System.out.println();
 }
 }
