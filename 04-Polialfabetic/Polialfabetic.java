@@ -59,20 +59,29 @@ public class Polialfabetic {
         for (int i = 0; i < msgXifrat.length(); i++) {
             char c = msgXifrat.charAt(i);
             char cMajuscula = Character.toUpperCase(c);
-            permutaAlfabet(alfabetActual);
-            int pos = -1;
-            for (int j = 0; j < alfabetActual.length; j++) {
+            boolean esLletra = false;
+            for (int k = 0; k < majuscules.length; k++) {
+                if (majuscules[k] == cMajuscula) {
+                    esLletra = true;
+                    break;
+                }
+            }
+
+            if (esLletra) {
+                permutaAlfabet(alfabetActual); 
+                
+                int pos = -1;            for (int j = 0; j < alfabetActual.length; j++) {
                 if (alfabetActual[j] == cMajuscula) {
                     pos = j;
                     break;
                 }
             }
             if (pos != -1) {
-                permutaAlfabet(alfabetActual); 
                 if (c == cMajuscula) {
                     resultat = resultat + majuscules[pos];
                 } else {
                     resultat = resultat + Character.toLowerCase(majuscules[pos]);
+                }
                 }
             } else {
                 resultat = resultat + c;
@@ -80,6 +89,7 @@ public class Polialfabetic {
         }
         return resultat;
     }
+
 
     public static void main(String[] args) {
     String msgs[] = {"Test 01 àrbritre, coixí, Perímetre",
