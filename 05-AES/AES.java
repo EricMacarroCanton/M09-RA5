@@ -14,7 +14,7 @@ public class AES {
 
     private static final int MIDA_IV = 16;
     private static final byte[] iv = new byte[MIDA_IV];
-    private static final String CLAU = "LaClauSecretaQueVulguis";
+    private static final String CLAU = "iticbcn";
 
     
      //Vector d'Inicialització (IV) aleatori utilitzant SecureRandom.
@@ -73,18 +73,34 @@ public class AES {
 public static String desxifraAES(byte[] bIvMsgXifrat, String clau)
 throws Exception {
 
-    // Extreure l'IV.
-    byte[] iv = new byte[16];
-    System.arraycopy(encryptedBytes, 0, iv, 0, iv.length);
-    IvParameterSpec ivSpec = new IvParameterSpec(iv);
-    // Extreure la part xifrada.
-    
-    // Fer hash de la clau
-    
-    // Desxifrar.
-    
-    // return String desxifrat
+ byte[] ivBytes = extreureIv(bIvMsgXifrat);
+    IvParameterSpec ivSpec = new IvParameterSpec(ivBytes);
+    byte[] encryptedBytes = getBytesXifrats(bIvMsgXifrat);
+    SecretKeySpec keySpec = generaHash(clau);
+
+    Cipher cipher = Cipher.getInstance(FORMAT_AES);
+    cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
+    byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
+
+    return new String(decryptedBytes, StandardCharsets.UTF_8);
 }
+
+    // Mètodes addicionals opcionals: xifra / desxifra
+    public static byte[] xifra(String msg) throws Exception {
+        return xifraAES(msg, CLAU);
+    }
+
+    public static byte[] xifra(String msg, String password) throws Exception {
+        return xifraAES(msg, password);
+    }
+
+    public static String desxifra(byte[] bMsgXifrat) throws Exception {
+        return desxifraAES(bMsgXifrat, CLAU);
+    }
+
+    public static String desxifra(byte[] bMsgXifrat, String password) throws Exception {
+        return desxifraAES(bMsgXifrat, password);
+    }
     public static void main(String[] args) {
     String msgs[] = {"Lorem ipsum dicet",
         "Hola Andrés cómo está tu cuñado",
