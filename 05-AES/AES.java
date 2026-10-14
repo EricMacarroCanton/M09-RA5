@@ -13,7 +13,6 @@ public class AES {
     public static final String FORMAT_AES = "AES/CBC/PKCS5Padding";
 
     private static final int MIDA_IV = 16;
-    private static final byte[] iv = new byte[MIDA_IV];
     private static final String CLAU = "iticbcn";
 
     
